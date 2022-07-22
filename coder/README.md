@@ -1,6 +1,4 @@
-# labuladong_path
-
-labuladong学习
+# LeetCode start from 0
 
 - 回溯
     - 46 全排列
