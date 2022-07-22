@@ -1,2 +1,4 @@
-rootProject.name = 'demoJava'
+rootProject.name = 'JavaPublic'
+include 'demo'
+include 'coder'
 

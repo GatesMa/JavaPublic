@@ -1,65 +1,40 @@
-plugins {
-    id 'java'
-//    id 'com.google.protobuf' version "0.8.12"
-}
-
-group 'org.example'
-version '1.0-SNAPSHOT'
-
-sourceSets {
-    main {
-//        proto {
-//            srcDir 'src/main/proto'
-//        }
-//        java {
-//            // include self written and generated code
-//            srcDirs 'src/main/java', 'build/generated/sources/protobuf/'
-//        }
-    }
-    // remove the test configuration - at least in your example you don't have a special test proto file
-}
-
-//protobuf {
-//    // Configure the protoc executable
-//    protoc {
-//        // Download from repositories
-//        artifact = 'com.google.protobuf:protoc:3.0.0-alpha-3'
-//    }
-//    generatedFilesBaseDir = "$projectDir/build/generated/sources/protobuf/"
-//}
-
-repositories {
-    maven {
-        url 'http://tsa.oa.com/nexus3/repository/maven-public/'
-    }
-    maven {
-        url 'https://mirrors.tencent.com/repository/maven/tencent_public/'
+buildscript {
+    repositories {
+        maven {
+            url 'http://tsa.oa.com/nexus3/repository/maven-public/'
+        }
     }
 }
 
-dependencies {
-    compile 'org.apache.logging.log4j:log4j-core:2.17.1'
-    compile 'org.apache.logging.log4j:log4j-api:2.17.1'
-//    compile 'com.google.protobuf:protobuf-java:3.4.0'
-//    compile 'com.google.protobuf:protobuf-gradle-plugin:0.8.1'
-    compile 'com.netflix.conductor:conductor-client:2.31.0'
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
 
-    // gson
-    compile 'com.google.code.gson:gson:2.8.2'
+    repositories {
+        maven {
+            url 'http://tsa.oa.com/nexus3/repository/maven-public/'
+        }
+        maven {
+            url 'https://mirrors.tencent.com/repository/maven/tencent_public/'
+        }
+    }
 
-    // jackson
-    compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.8.10'
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
 
-    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
-    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
+    [compileJava, javadoc, compileTestJava]*.options*.encoding = 'UTF-8'
 
-// https://mvnrepository.com/artifact/org.apache.directory.studio/org.apache.commons.lang
-    implementation group: 'org.apache.directory.studio', name: 'org.apache.commons.lang', version: '2.6'
+    configurations.all {
+        // check for updates every build
+        resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+    }
 
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile group: "com.alibaba", name: "fastjson", version: "1.2.78", force: true
-
-    compile('commons-codec:commons-codec:1.11') {
-        force = true
+    //强制指定第三方引用库
+    dependencies {
+        compile group: "com.alibaba", name: "fastjson", version: "1.2.78", force: true
+        // 修复文档https://km.woa.com/articles/show/531997 腾讯内部的安全包
+        compile group: "org.apache.logging.log4j", name: "log4j-core", version: "2.17.1", force: true
+        compile group: "org.apache.logging.log4j", name: "log4j-api", version: "2.17.1", force: true
     }
 }
+
