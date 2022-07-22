@@ -1,4 +1,4 @@
-package  coder.t1_100.t51;
+package coder.t1_100.t51;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,73 +9,67 @@ public class Solution {
     public List<List<String>> res = new ArrayList<>();
 
     public List<List<String>> solveNQueens(int n) {
-        List<String> path = new ArrayList<>();
 
-        // 初始化矩阵
-        //初始化棋盘
-        for(int i = 0; i < n; i++){
-            StringBuilder str = new StringBuilder();
-            for(int j = 0; j < n; j++){
-                str.append('.');
+        // 初始化棋盘
+        List<StringBuilder> board = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            StringBuilder sb = new StringBuilder();
+            for (int j = 0; j < n; j++) {
+                sb.append('.');
             }
-            path.add(str.toString());
+            board.add(sb);
         }
 
-
-
-        // 开始回溯暴力查找
-        backtrack(path, n, 0);
+        // 回溯
+        backtrack(board, n, 0);
         return res;
     }
 
-    public void backtrack(List<String> board, int n, int row) {
-
+    public void backtrack(List<StringBuilder> board, int n, int row) {
         if (row == n) {
             List<String> tmp = new ArrayList<>();
-            for (String str : board) {
-                tmp.add(str);
+            for (StringBuilder str : board) {
+                tmp.add(str.toString());
             }
             res.add(tmp);
             return;
         }
 
-        for (int col = 0;col < n;col++) {
-            // 不符合条件就continue
-            if (!vaild(board, row, col)) {
+        // 填第row行
+        for (int i = 0; i < n; i++) {
+            if (!vaild(board, row, i)) {
                 continue;
             }
-            char[] chs = board.get(row).toCharArray();
-            chs[col] = 'Q';
-            board.set(row, new String(chs));
-            //board.get(row).replace(col, col + 1, "Q");
+            board.get(row).setCharAt(i, 'Q');
             backtrack(board, n, row + 1);
-            //board.get(row).replace(col, col + 1, ".");
-            chs = board.get(row).toCharArray();
-            chs[col] = '.';
-            board.set(row, new String(chs));
+            board.get(row).setCharAt(i, '.');
         }
+
     }
 
-    public boolean vaild(List<String> board, int row, int col) {
+    public boolean vaild(List<StringBuilder> board, int row, int col) {
         int n = board.size();
         // 正上方
-        for (int i = 0;i < row;i++) {
+        for (int i = row - 1; i >= 0; i--) {
             if (board.get(i).charAt(col) == 'Q') {
                 return false;
             }
         }
-        // 右上方
-        for (int i = row - 1, j = col + 1;i >= 0 && j < n;i--, j++) {
+
+        // 左上
+        for (int i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--) {
             if (board.get(i).charAt(j) == 'Q') {
                 return false;
             }
         }
-        // 左上方
-        for (int i = row - 1, j = col - 1;i >= 0 && j >= 0;i--, j--) {
+
+        // 右上
+        for (int i = row - 1, j = col + 1; i >= 0 && j < n; i--, j++) {
             if (board.get(i).charAt(j) == 'Q') {
                 return false;
             }
         }
+
         return true;
     }
 }

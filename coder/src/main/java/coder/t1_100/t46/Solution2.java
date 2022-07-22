@@ -1,4 +1,4 @@
-package  coder.t1_100.t46;
+package coder.t1_100.t46;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,18 +21,18 @@ class Solution2 {
     public void backtrack(int[] nums, int pos) {
         if (pos == nums.length) {
             List<Integer> path = new ArrayList<>();
-            for (int i : nums) {
-                path.add(i);
+            for (int num : nums) {
+                path.add(num);
             }
             res.add(path);
-            return;
         }
 
-        for (int i = pos;i < nums.length;i++) {
+        for (int i = pos; i < nums.length; i++) {
             swap(nums, pos, i);
             backtrack(nums, pos + 1);
             swap(nums, pos, i);
         }
+
     }
 
     public void swap(int[] nums, int i, int j) {
