@@ -1,6 +1,10 @@
 package coder.t700_800.t704;
 
-
+/**
+ * 找一个数： left = 0 right = length - 1， left <= right, left = mid + 1, right = mid - 1  搜索区间的概念
+ * 左侧边界： left = 0 right = length left < right, left = mid + 1, right = mid， return left / right
+ * 右侧边界： left = 0 right = length left < right, left = mid + 1, right = mid， return left - 1 / right - 1
+ */
 class Solution {
 
     public int search(int[] nums, int target) {
