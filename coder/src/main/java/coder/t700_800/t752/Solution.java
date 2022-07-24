@@ -1,47 +1,40 @@
 package coder.t700_800.t752;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 class Solution {
+
     public int openLock(String[] deadends, String target) {
+        Queue<String> queue = new LinkedList<>();
+        queue.add("0000");
 
-        // 死亡数字
-        Set<String> deads = new HashSet<>();
-        for (String s : deadends) {
-            deads.add(s);
-        }
-        // 判重
-        Set<String> visit = new HashSet<>();
-
-        // 待转的密码列
-        Queue<String> q = new LinkedList<>();
-        q.offer("0000");
-        // 记录步数
+        Set<String> deadSet = Arrays.stream(deadends).collect(Collectors.toSet());
         int step = 0;
-        while (!q.isEmpty()) {
-            int sz = q.size();
-            for (int i = 0;i < sz;i++) {
-                String cur = q.poll();
 
-                if (deads.contains(cur)) continue;
-                if (target.equals(cur)) return step;
+        // 记录已经走过的密码
+        Set<String> pathSet = new HashSet<>();
 
-                for (int j = 0;j < 4;j++) {
-                    String down = minusOne(cur, j);
-                    if (!visit.contains(down)) {
-                        q.offer(down);
-                        visit.add(down);
-                    }
-                    String up = plusOne(cur, j);
-                    if (!visit.contains(up)) {
-                        q.offer(up);
-                        visit.add(up);
-                    }
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            // 每一个密码，4位数字都可以向上或向下
+            for (int i = 0; i < size; i++) {
+                String pass = queue.poll();
+                if (deadSet.contains(pass) || pathSet.contains(pass)) {
+                    continue;
                 }
-
+                if (target.equals(pass)) {
+                    return step;
+                }
+                for (int j = 0; j < 4; j++) {
+                    queue.offer(minusOne(pass, j));
+                    queue.offer(plusOne(pass, j));
+                }
+                pathSet.add(pass);
             }
             step++;
         }
@@ -68,6 +61,10 @@ class Solution {
             chs[i] += 1;
         }
         return new String(chs);
+    }
+
+    public static void main(String[] args) {
+        new Solution().openLock(new String[]{"0201", "0101", "0102", "1212", "2002"}, "0202");
     }
 
 
