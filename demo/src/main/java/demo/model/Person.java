@@ -1,4 +1,4 @@
-package model;
+package demo.model;
 
 import annotation.MyAnnotation;
 import java.time.LocalDateTime;

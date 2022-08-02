@@ -1,18 +1,22 @@
-package conductor;
+package demo.conductor;
 
 import com.netflix.conductor.client.worker.Worker;
 import com.netflix.conductor.common.metadata.tasks.Task;
 import com.netflix.conductor.common.metadata.tasks.TaskResult;
 
 public class LeaderRatifyWorker implements Worker {
+
     private String taskDefName;
+
     public LeaderRatifyWorker(String taskDefName) {
         this.taskDefName = taskDefName;
     }
+
     @Override
     public String getTaskDefName() {
         return taskDefName;
     }
+
     @Override
     public TaskResult execute(Task task) {
         System.out.printf("Executing %s%n", taskDefName);

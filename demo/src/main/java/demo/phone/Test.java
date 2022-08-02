@@ -1,4 +1,4 @@
-package phone;
+package demo.phone;
 
 /**
  * Test
@@ -9,7 +9,6 @@ public class Test {
 
 
     public static void main(String[] args) {
-
 
         PhoneUtils.Phone phone = PhoneUtils.getPhone("+861021356793");
         System.out.println(phone);

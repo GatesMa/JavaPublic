@@ -1,4 +1,4 @@
-package test;
+package demo.test;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -15,10 +15,7 @@ public class TestReflect {
         person.setAge(12);
         person.setName("mike");
 
-
-
         Class<? extends Person> personClass = person.getClass();
-
 
         Field field = personClass.getDeclaredField("age");
 

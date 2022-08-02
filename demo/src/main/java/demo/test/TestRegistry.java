@@ -1,11 +1,8 @@
-package test;
+package demo.test;
 
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
 import javax.naming.NamingException;
-import javax.naming.Reference;
 
 /**
  * @Created by gatesma on 2021/12/12.

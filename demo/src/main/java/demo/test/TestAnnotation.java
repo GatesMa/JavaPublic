@@ -1,4 +1,4 @@
-package test;
+package demo.test;
 
 import annotation.MyAnnotation;
 import java.lang.reflect.Method;
@@ -15,7 +15,6 @@ public class TestAnnotation {
 
         Class<Person> personClass = Person.class;
 
-
         // 类
         MyAnnotation annotation = personClass.getAnnotation(MyAnnotation.class);
         String value = annotation.value();
@@ -24,7 +23,8 @@ public class TestAnnotation {
         // 方法
         Method getAge = personClass.getMethod("getAge");
         MyAnnotation annotation1 = getAge.getAnnotation(MyAnnotation.class);
-        System.out.println(annotation1.value());;
+        System.out.println(annotation1.value());
+        ;
 
 
     }

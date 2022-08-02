@@ -1,4 +1,4 @@
-package lombok;
+package demo.lombok;
 
 import java.io.IOException;
 import java.io.Writer;
@@ -16,6 +16,7 @@ import javax.tools.JavaFileObject;
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
 @SupportedAnnotationTypes("lombok.MyGetter")
 public class MyGetterProcessor extends AbstractProcessor {
+
     @Override
     public synchronized void init(ProcessingEnvironment processingEnv) {
         super.init(processingEnv);

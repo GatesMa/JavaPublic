@@ -1,4 +1,4 @@
-package test;
+package demo.test;
 
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -1,4 +1,4 @@
-package lombok;
+package demo.lombok;
 
 @MyGetter
 public class TestAno {

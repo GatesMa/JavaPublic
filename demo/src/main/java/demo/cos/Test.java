@@ -1,6 +1,5 @@
-package cos;
+package demo.cos;
 
-import java.net.URLEncoder;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.codec.digest.HmacAlgorithms;
 import org.apache.commons.codec.digest.HmacUtils;

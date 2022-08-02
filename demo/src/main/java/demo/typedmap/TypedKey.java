@@ -1,4 +1,4 @@
-package typedmap;
+package demo.typedmap;
 
 /**
  * TypedKey

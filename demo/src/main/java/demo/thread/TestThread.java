@@ -1,4 +1,4 @@
-package thread;
+package demo.thread;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -13,7 +13,6 @@ import java.util.concurrent.TimeUnit;
 public class TestThread {
 
 
-
     public static void main(String[] args) {
 
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(
@@ -26,7 +25,7 @@ public class TestThread {
                 new ThreadPoolExecutor.CallerRunsPolicy());
 
         try {
-            for (int i = 0;i < 3;i++) {
+            for (int i = 0; i < 3; i++) {
                 int finalI = i;
                 threadPoolExecutor.submit(() -> {
                     System.out.println("start " + finalI);
@@ -39,8 +38,6 @@ public class TestThread {
         } catch (Exception e) {
             System.out.println("exception catch:" + e.getMessage());
         }
-
-
 
 
     }

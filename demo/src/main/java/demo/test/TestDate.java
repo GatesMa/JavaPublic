@@ -1,7 +1,6 @@
-package test;
+package demo.test;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 /**
  * test.TestDate
