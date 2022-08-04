@@ -2,7 +2,7 @@ package demo.token;
 
 public class TokenServiceSpringServiceTest {
 
-    private static final token.TokenService tokenService = new token.TokenService();
+    private static final TokenService tokenService = new TokenService();
 
     public static void main(String[] args) throws Exception {
         // om crm
@@ -39,13 +39,13 @@ public class TokenServiceSpringServiceTest {
         System.out.println("orbac prod: " + tokenService.encode(null, "2348", "dsX82F<k}\\v&rBoP"));
 
         // bm
-        System.out.println("bm prod: " +
-                tokenService.encode(null, "agency-center", "588344e46288fuor,{VO$x7Hzyp|u.T%"));
+        System.out.println(
+                "bm prod: " + tokenService.encode(null, "agency-center", "588344e46288fuor,{VO$x7Hzyp|u.T%"));
 
         // agent-center
 
-        System.out.println("agent-center prod: " +
-                tokenService.encode(null, "agency_web", "1)#1AYu@a16qeoW@2Jg!yBCjW52$CojY"));
+        System.out.println(
+                "agent-center prod: " + tokenService.encode(null, "agency_web", "1)#1AYu@a16qeoW@2Jg!yBCjW52$CojY"));
 
     }
 }
