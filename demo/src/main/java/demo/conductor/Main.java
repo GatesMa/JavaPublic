@@ -14,7 +14,7 @@ public class Main {
         taskClient.setRootURI("http://9.208.244.47:8080/api/");       //Point this to the server API
         int threadCount = 2;         //number of threads used to execute workers.  To avoid starvation, should be same or more than number of workers
         Worker worker1 = new LeaderRatifyWorker("leaderRatify");
-        Worker worker2 = new conductor.ManagerRatifyWorker("managerRatify");
+        Worker worker2 = new ManagerRatifyWorker("managerRatify");
         List<Worker> workers = new ArrayList<>();
         workers.add(worker1);
         workers.add(worker2);
