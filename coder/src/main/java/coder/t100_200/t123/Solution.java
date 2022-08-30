@@ -31,6 +31,6 @@ public class Solution {
     public static void main(String[] args) {
         // 输入：prices = [3,3,5,0,0,3,1,4]
         // 输出：6
-        System.out.println(maxProfit(new int[]{3, 3, 5, 0, 0, 3, 1, 4}));
+        System.out.println(maxProfit(new int[]{8, 7, 6, 5, 4, 3, 2, 1}));
     }
 }
