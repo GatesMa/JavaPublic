@@ -41,3 +41,24 @@
 	- 309
 	- 714
 	- 188
+
+```
+/Users/gatesma/project/demo/JavaPublic/coder/src/main/java/coder
+
+$!velocityTool.camelCaseName(${question.titleSlug})${question.frontendQuestionId}
+
+package coder.leetcode.editor.cn;
+
+public class $!velocityTool.camelCaseName(${question.titleSlug})${question.frontendQuestionId} {
+    
+    // CheckStyle
+    private final String time = "$!velocityTool.date()";
+
+    public static void main(String[] args) {
+         Solution solution = new $!velocityTool.camelCaseName(${question.titleSlug})${question.frontendQuestionId}().new Solution();
+    }
+    
+    ${question.code}
+    
+}
+```
