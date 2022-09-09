@@ -20,8 +20,7 @@ public class CoinChange322 {
             int[] memo = new int[amount + 1];
             Arrays.fill(memo, Integer.MAX_VALUE);
 
-            int count = coinChangeHelper(coins, amount, memo);
-            return count == Integer.MAX_VALUE ? -1 : count;
+            return coinChangeHelper(coins, amount, memo);
         }
 
         public int coinChangeHelper(int[] coins, int amount, int[] memo) {
