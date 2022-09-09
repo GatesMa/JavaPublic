@@ -34,16 +34,15 @@ public class CoinChange322 {
                 return memo[amount];
             }
 
-            int min = Integer.MAX_VALUE;
             for (int coin : coins) {
                 int sub = coinChangeHelper(coins, amount - coin, memo);
                 if (sub == -1) {
                     continue;
                 }
-                min = Math.min(min, sub + 1);
+                memo[amount] = Math.min(memo[amount], sub + 1);
             }
 
-            memo[amount] = min == Integer.MAX_VALUE ? -1 : min;
+            memo[amount] = memo[amount] == Integer.MAX_VALUE ? -1 : memo[amount];
 
             return memo[amount];
         }
