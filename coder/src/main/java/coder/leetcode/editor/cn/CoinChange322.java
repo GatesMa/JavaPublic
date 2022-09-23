@@ -24,11 +24,11 @@ public class CoinChange322 {
         }
 
         public int coinChangeHelper(int[] coins, int amount, int[] memo) {
-            if (coins == null || coins.length == 0 || amount == 0) {
-                return 0;
-            }
             if (amount < 0) {
                 return -1;
+            }
+            if (coins == null || coins.length == 0 || amount == 0) {
+                return 0;
             }
             if (memo[amount] != Integer.MAX_VALUE) {
                 return memo[amount];
@@ -39,14 +39,13 @@ public class CoinChange322 {
                 if (sub == -1) {
                     continue;
                 }
+
                 memo[amount] = Math.min(memo[amount], sub + 1);
             }
 
             memo[amount] = memo[amount] == Integer.MAX_VALUE ? -1 : memo[amount];
-
             return memo[amount];
         }
-
     }
     //leetcode submit region end(Prohibit modification and deletion)
 }
