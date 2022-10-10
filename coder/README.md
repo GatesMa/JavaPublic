@@ -68,3 +68,16 @@ public class $!velocityTool.camelCaseName(${question.titleSlug})${question.front
     
 }
 ```
+
+```
+dp：
+最长回文子序列
+最长公共子序列
+最长递增子序列
+最大子数组和
+编辑距离
+
+
+```
+
+
