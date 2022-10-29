@@ -47,5 +47,8 @@ public class TokenServiceSpringServiceTest {
         System.out.println(
                 "agent-center prod: " + tokenService.encode(null, "agency_web", "1)#1AYu@a16qeoW@2Jg!yBCjW52$CojY"));
 
+        System.out.println("crm prod: " + tokenService.encode("crm", "crm",
+                "54bb173c23469s,B9Snwt*J~PMV2)U~h"));
+
     }
 }
