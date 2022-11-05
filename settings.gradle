@@ -1,4 +1,5 @@
 rootProject.name = 'JavaPublic'
 include 'demo'
 include 'coder'
+include 'mybatis-plus-demo'
 
