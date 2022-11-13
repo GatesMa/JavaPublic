@@ -1,8 +1,8 @@
 package demo.test;
 
-import annotation.MyAnnotation;
+import demo.annotation.MyAnnotation;
+import demo.model.Person;
 import java.lang.reflect.Method;
-import model.Person;
 
 public class TestAnnotation {
 

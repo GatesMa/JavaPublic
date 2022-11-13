@@ -1,6 +1,6 @@
 package demo.model;
 
-import annotation.MyAnnotation;
+import demo.annotation.MyAnnotation;
 import java.time.LocalDateTime;
 
 @MyAnnotation
