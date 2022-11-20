@@ -20,7 +20,7 @@ public class ProcessTxtTaskEffect {
 
 
     public static void main(String[] args) throws IOException {
-        String path = "/Users/gatesma/tmp/20221112/crm_task_sql_result_20221112211317.txt";
+        String path = "/Users/gatesma/tmp/20221116/crm_task_sql_result_20221116142625.txt";
 
         try {
             List<String> lines = FileUtils.readLines(new File(path), StandardCharsets.UTF_8);
@@ -28,12 +28,13 @@ public class ProcessTxtTaskEffect {
                 String[] strings = line.split("\t");
                 // System.out.println(strings[1]);
                 JSONObject jsonObject = JSONObject.parseObject(strings[1].replace("\\\\", "\\"));
-                System.out.println(jsonObject.get("baseMetric"));
+                // System.out.println(jsonObject.get("baseMetric"));
                 final Map<BaseIndex, Double> baseMetricSummary = new Gson().fromJson(
                         jsonObject.get("baseMetric").toString(),
                         new TypeToken<Map<BaseIndex, Double>>() {
                         }.getType());
-                System.out.println(baseMetricSummary);
+                System.out.println(baseMetricSummary.get(BaseIndex.NEW_AD_COUNT) + "," + baseMetricSummary.get(
+                        BaseIndex.NEW_AD_BEFORE_COUNT));
                 // System.out.println("121231");
             }
         } catch (Exception e) {

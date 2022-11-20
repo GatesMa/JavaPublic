@@ -1,5 +1,7 @@
 package demo;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -12,7 +14,18 @@ public class MainTest {
     public static AtomicInteger num = new AtomicInteger(0);
 
     public static void main(String[] args) {
-        System.out.print("hello world!");
+
+        System.out.println("hello world!");
+
+        LocalDate start = LocalDate.of(2022, 10, 21);
+        LocalDate end = LocalDate.of(2022, 11, 15);
+        int days = Period.between(start, end).getDays();
+        System.out.println(days);
+
+        System.out.println(start.minusDays(days * 2L));
+        ;
+
+
     }
 
     // public static void main(String[] args) throws InterruptedException {
@@ -30,4 +43,6 @@ public class MainTest {
     //     Thread.sleep(1000);
     //     System.out.println("num = " + num);
     // }
+
+
 }

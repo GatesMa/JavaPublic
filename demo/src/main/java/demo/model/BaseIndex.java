@@ -62,6 +62,15 @@ public enum BaseIndex {
     ADV_CURRENT_GMV("账户广告任务期GMV", MetricObject.ADV_CURRENT, "gmv"),
     ADV_BEFORE_GMV("账户广告前周期GMV", MetricObject.ADV_BEFORE, "gmv"),
 
+    // 计算逻辑同观星台对齐需要新增基础指标
+    ADV_CURRENT_GMV_FOR_COST_RATE("账户广告任务期GMV(计算成本偏差使用)", MetricObject.ADV_CURRENT, "gmv_for_cost_rate"),
+    ADV_BEFORE_GMV_FOR_COST_RATE("账户广告前周期GMV(计算成本偏差使用)", MetricObject.ADV_BEFORE, "gmv_for_cost_rate"),
+    ADV_CURRENT_OCPX_COST("账户广告任务期ocpx消耗(计算成本偏差使用)", MetricObject.ADV_CURRENT, "ocpx_cost"),
+    ADV_BEFORE_OCPX_COST("账户广告前周期ocpx消耗(计算成本偏差使用)", MetricObject.ADV_BEFORE, "ocpx_cost"),
+    ADV_CURRENT_CONVERSIONS_COUNT_FOR_CVR("账户周期内目标转化量(计算浅层cvr使用)", MetricObject.ADV_CURRENT, "conversions_for_1_cvr"),
+    ADV_BEFORE_CONVERSIONS_COUNT_FOR_CVR("账户周期前目标转化量(计算浅层cvr使用)", MetricObject.ADV_BEFORE, "conversions_for_1_cvr"),
+    ADV_CURRENT_CLICK_FOR_CVR("账户周期内点击量(计算浅层cvr使用)", MetricObject.ADV_CURRENT, "click_for_1_cvr"),
+    ADV_BEFORE_CLICK_FOR_CVR("账户周期前点击量(计算浅层cvr使用)", MetricObject.ADV_BEFORE, "click_for_1_cvr"),
 
     ADV_CURRENT_EXPOSURE_COUNT("账户周期内曝光", MetricObject.ADV_CURRENT, "exposure_count"),
     ADV_BEFORE_EXPOSURE_COUNT("账户自身曝光", MetricObject.ADV_BEFORE, "exposure_count");
